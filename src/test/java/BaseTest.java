@@ -15,6 +15,7 @@ public class BaseTest {
     protected ProductPage productPage;
     protected WishlistPage wishlistPage;
     protected MyAccountPage myAccountPage;
+    protected CheckoutPage checkoutPage;
     @BeforeAll
     public static void loadConfiguration() {
         configuration = new ConfigurationReader();
@@ -29,6 +30,7 @@ public class BaseTest {
             productPage = new ProductPage(browser);
             wishlistPage = new WishlistPage(browser);
             myAccountPage = new MyAccountPage(browser);
+            checkoutPage = new CheckoutPage(browser);
         } catch (NoSuchBrowserException e) {
             throw new RuntimeException(e);
         }
