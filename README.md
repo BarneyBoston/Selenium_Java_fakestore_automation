@@ -40,12 +40,12 @@ This command will download all necessary dependencies, compile the source code, 
 To verify that the project is set up correctly, you can run the following command to check if all tests pass:
 
 ```bash
-mvn test -Dsurefire.suiteXmlFiles=src/test/resources/testng.xml
+mvn test 
 ```
 
 ## Usage
 
-If the project will be developed further, specify which test classes should be run within testng.xml file.
+If the project will be developed further, after adding more tests, they all should be run with mvn test command.
 
 
 ## Contributing
