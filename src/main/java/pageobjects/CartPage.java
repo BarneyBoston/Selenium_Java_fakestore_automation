@@ -14,7 +14,7 @@ public class CartPage extends BasePage {
     private WebElement quantityField;
     @FindBy(css = "[name=update_cart]")
     private WebElement updateCartButton;
-    @FindBy(css = "[data-title=Total]")
+    @FindBy(css = "[data-title=Kwota]")
     private WebElement totalPrice;
     public CartPage(Browser browser) {
         super(browser);

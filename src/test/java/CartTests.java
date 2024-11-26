@@ -3,8 +3,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class CartTests extends BaseTest {
-    String calculusSlug = "/calculus-made-easy-by-silvanus-p-thompson/";
-    String historyOfAstronomySlug = "/history-of-astronomy-by-george-forbes/";
+    String greceSlug = "/grecja-limnos/";
+    String sailingCourseSlug = "/kurs-zeglarski-na-mazurach/";
 
     @Test
     @DisplayName("Cart without added products is empty check.")
@@ -19,7 +19,7 @@ public class CartTests extends BaseTest {
     @DisplayName("One product added to cart check.")
     public void product_added_to_cart_should_cart_have_one_product() {
         productPage
-                    .go(calculusSlug)
+                    .go(greceSlug)
                     .addToCart()
                     .goToCart();
         int numberOfProducts = cartPage
@@ -34,9 +34,9 @@ public class CartTests extends BaseTest {
     @DisplayName("Two products added to cart check.")
     public void two_products_added_to_cart_should_cart_have_two_products() {
                 productPage
-                        .go(calculusSlug)
+                        .go(greceSlug)
                         .addToCart()
-                        .go(historyOfAstronomySlug)
+                        .go(sailingCourseSlug)
                         .addToCart()
                         .goToCart();
 
@@ -53,12 +53,12 @@ public class CartTests extends BaseTest {
     public void changing_quantity_in_cart_should_change_total_price() {
 
                 productPage
-                        .go(calculusSlug)
+                        .go(greceSlug)
                         .addToCart()
                         .goToCart()
                         .changeQuantity(3);
 
-        Assertions.assertEquals("39,00 €",
+        Assertions.assertEquals("9 600,00 zł",
                 cartPage.getTotalPrice(),
                 "Total price after quantity update is not what expected.");
     }
@@ -68,12 +68,12 @@ public class CartTests extends BaseTest {
     public void changing_quantity_in_cart_to_negative_should_not_update_total_price() {
 
              productPage
-                .go(calculusSlug)
+                .go(greceSlug)
                 .addToCart()
                 .goToCart()
                 .changeQuantity(-3);
 
-        Assertions.assertEquals("13,00 €",
+        Assertions.assertEquals("3 200,00 zł",
                 cartPage.getTotalPrice(),
                 "Total price after quantity update is not what expected.");
     }
