@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Base64;
 import java.util.Properties;
 
 public class ConfigurationReader {
@@ -59,11 +60,16 @@ public class ConfigurationReader {
         else throw new RuntimeException("\"waitInSeconds\" " + propertyNotSpecifiedMessage);
     }
     public String getUsername() {
-        if (!username.isEmpty()) return username;
+        if (!username.isEmpty()) return decodeString(username);
         else throw new RuntimeException("\"waitInSeconds\" " + username);
     }
     public String getPassword() {
-        if (!password.isEmpty()) return password;
+        if (!password.isEmpty()) return decodeString(password);
         else throw new RuntimeException("\"waitInSeconds\" " + password);
+    }
+    private String decodeString(String encodedString) {
+        byte[] decodedBytes = Base64.getDecoder().decode(encodedString);
+
+        return new String(decodedBytes);
     }
 }

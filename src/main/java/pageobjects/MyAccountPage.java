@@ -10,7 +10,7 @@ import java.util.List;
 public class MyAccountPage extends BasePage{
     ConfigurationReader configurationReader;
     public final StoreHeaderComponent storeHeader;
-    String myAccountPageSlug = "my-account/";
+    String myAccountPageSlug = "moje-konto/";
     public MyAccountPage(Browser browser) {
         super(browser);
         storeHeader = new StoreHeaderComponent(browser);
@@ -20,7 +20,7 @@ public class MyAccountPage extends BasePage{
     private WebElement usernameField;
     @FindBy(css = "#password")
     private WebElement passwordField;
-    @FindBy(xpath = "//button[text()='Log in']")
+    @FindBy(xpath = "//button[text()='Zaloguj się']")
     private WebElement loginButton;
     @FindBy(css = ".woocommerce-MyAccount-navigation-link")
     private List<WebElement> navigationLinks;
