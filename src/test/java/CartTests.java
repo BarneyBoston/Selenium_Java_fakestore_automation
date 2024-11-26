@@ -3,7 +3,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class CartTests extends BaseTest {
-    String greceSlug = "/grecja-limnos/";
+    String greeceSlug = "/grecja-limnos/";
     String sailingCourseSlug = "/kurs-zeglarski-na-mazurach/";
 
     @Test
@@ -19,7 +19,7 @@ public class CartTests extends BaseTest {
     @DisplayName("One product added to cart check.")
     public void product_added_to_cart_should_cart_have_one_product() {
         productPage
-                    .go(greceSlug)
+                    .go(greeceSlug)
                     .addToCart()
                     .goToCart();
         int numberOfProducts = cartPage
@@ -34,7 +34,7 @@ public class CartTests extends BaseTest {
     @DisplayName("Two products added to cart check.")
     public void two_products_added_to_cart_should_cart_have_two_products() {
                 productPage
-                        .go(greceSlug)
+                        .go(greeceSlug)
                         .addToCart()
                         .go(sailingCourseSlug)
                         .addToCart()
@@ -53,7 +53,7 @@ public class CartTests extends BaseTest {
     public void changing_quantity_in_cart_should_change_total_price() {
 
                 productPage
-                        .go(greceSlug)
+                        .go(greeceSlug)
                         .addToCart()
                         .goToCart()
                         .changeQuantity(3);
@@ -68,7 +68,7 @@ public class CartTests extends BaseTest {
     public void changing_quantity_in_cart_to_negative_should_not_update_total_price() {
 
              productPage
-                .go(greceSlug)
+                .go(greeceSlug)
                 .addToCart()
                 .goToCart()
                 .changeQuantity(-3);
